@@ -16,19 +16,25 @@ java {
 dependencies {
   implementation(kotlin("stdlib-jdk8"))
   implementation("io.reactivex.rxjava3:rxjava:3.0.4")
+  testImplementation("org.junit.jupiter:junit-jupiter:5.6.2")
+  testImplementation("ch.tutteli.atrium:atrium-fluent-en_GB:0.12.0")
+  testImplementation("ch.tutteli.atrium:atrium-api-fluent-en_GB-kotlin_1_3:0.12.0")
 }
 
 repositories {
   mavenCentral()
 }
 
-val compileKotlin: KotlinCompile by tasks
-compileKotlin.kotlinOptions {
-  jvmTarget = "1.8"
+tasks.test {
+  useJUnitPlatform()
+  testLogging {
+    events("passed", "skipped", "failed")
+  }
 }
-val compileTestKotlin: KotlinCompile by tasks
-compileTestKotlin.kotlinOptions {
-  jvmTarget = "1.8"
+
+// config JVM target to 1.8 for kotlin compilation tasks
+tasks.withType<KotlinCompile>().configureEach {
+  kotlinOptions.jvmTarget = "1.8"
 }
 
 val sourcesJar by tasks.registering(Jar::class) {
