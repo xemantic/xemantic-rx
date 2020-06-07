@@ -29,7 +29,7 @@ import org.junit.jupiter.api.Test;
 public class XemanticRxJavaTest {
 
   @Test
-  public void shouldCreateThreadInstance() {
+  public void shouldBeUsableFromJava() {
     // given
     ThreadFactory factory = XemanticRxKt.singleThreadFactory("foo");
 
