@@ -3,6 +3,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 group = "com.xemantic.rx"
 version = "1.0-SNAPSHOT"
 
+val atriumVersion = "0.12.0"
+
 plugins {
   kotlin("jvm") version "1.3.72"
   `maven-publish`
@@ -17,8 +19,8 @@ dependencies {
   implementation(kotlin("stdlib-jdk8"))
   implementation("io.reactivex.rxjava3:rxjava:3.0.4")
   testImplementation("org.junit.jupiter:junit-jupiter:5.6.2")
-  testImplementation("ch.tutteli.atrium:atrium-fluent-en_GB:0.12.0")
-  testImplementation("ch.tutteli.atrium:atrium-api-fluent-en_GB-kotlin_1_3:0.12.0")
+  testImplementation("ch.tutteli.atrium:atrium-fluent-en_GB:$atriumVersion")
+  testImplementation("ch.tutteli.atrium:atrium-api-fluent-en_GB-kotlin_1_3:$atriumVersion")
 }
 
 repositories {
